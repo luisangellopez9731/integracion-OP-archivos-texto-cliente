@@ -13,12 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // API calls
 app.get('/api/payroll', logic.getPayroll);
 
-app.post('/api/world', (req, res) => {
-  console.log(req.body);
-  res.send(
-    `I received your POST request. This is what you sent me: ${req.body.post}`,
-  );
-});
+app.post('/api/generate', logic.generateCSV);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
